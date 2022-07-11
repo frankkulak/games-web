@@ -6,7 +6,7 @@
 </script>
 
 {#if model}
-  <div>
+  <div class="bg-gray-300 dark:bg-gray-900 rounded p-1">
     {#each model.columns as column, colKey (colKey)}
       <div class="flex">
         {#each column as cell, rowKey (rowKey)}
@@ -16,3 +16,15 @@
     {/each}
   </div>
 {/if}
+
+<style lang="scss" global>
+  :root {
+    --minesweeper-tile-1: #0abd73;
+    --minesweeper-tile-2: #32c77a;
+
+    &.dark {
+      --minesweeper-tile-1: #154f37;
+      --minesweeper-tile-2: #1a5c3a;
+    }
+  }
+</style>

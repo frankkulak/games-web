@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MinesweeperBoard from "$components/minesweeper/MinesweeperBoard.svelte";
+  import MinesweeperBoard from "../minesweeper/MinesweeperBoard.svelte";
   import { MinesweeperModel } from "$lib/minesweeper";
   import { onMount } from "svelte";
 
