@@ -1,0 +1,42 @@
+{
+  "name": "ts4-mods-host",
+  "version": "1.0.0",
+  "private": true,
+  "author": "frankkulak",
+  "scripts": {
+    "clean": "rm -r ./public/build",
+    "build:sass": "sass ./src/styles/_index.scss ./public/build/global.css",
+    "build:svelte": "rollup -c",
+    "build:tw": "npx tailwindcss -i ./tailwind.css -o ./public/build/tailwind.css",
+    "build": "npm run clean ; npm run watch:tw ; npm run watch:sass ; npm run watch:svelte",
+    "watch:sass": "npm run build:sass -- --watch",
+    "watch:svelte": "rollup -c -w",
+    "watch:tw": "npm run build:tw -- --watch",
+    "dev": "npm run clean ; concurrently \"npm run watch:tw\" \"npm run watch:sass\" \"npm run watch:svelte\"",
+    "start": "sirv public --no-clear --port 5000",
+    "serve": "sirv public --no-clear --host"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@tsconfig/svelte": "^3.0.0",
+    "concurrently": "^7.2.2",
+    "rollup": "^2.68.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.49.8",
+    "sirv-cli": "^2.0.2",
+    "svelte": "^3.46.4",
+    "svelte-check": "^2.4.5",
+    "svelte-preprocess": "^4.10.4",
+    "svelte-spa-router": "^3.2.0",
+    "tailwindcss": "^3.1.4",
+    "ts-node": "^10.8.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5"
+  }
+}

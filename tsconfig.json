@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": [
+    "./**/*.ts",
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "baseUrl": "src",
+		"paths": {
+      "$components*": [
+        "components*"
+      ],
+			"$lib*": [
+				"lib*"
+			],
+			"$pages*": [
+				"components/pages*"
+			],
+		},
+  }
+}

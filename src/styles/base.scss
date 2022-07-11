@@ -1,0 +1,28 @@
+html {
+  &.theme-transition,
+  &.theme-transition *,
+  &.theme-transition *:before,
+  &.theme-transition *:after {
+    // keep in sync with timeout in ThemeToggler.svelte
+    $time: 500ms;
+
+    transition: all $time;
+    transition-delay: 0ms;
+  }
+
+  *,
+  *:after,
+  *:before {
+    // needed for smooth transitions
+    color: black;
+  }
+
+  &.dark {
+    *,
+    *:after,
+    *:before {
+      // needed for smooth transitions
+      color: white;
+    }
+  }
+}

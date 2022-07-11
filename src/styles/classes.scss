@@ -1,0 +1,19 @@
+.svg {
+  filter: var(--filter-svg);
+}
+
+.svg-light {
+  filter: var(--filter-svg-light);
+}
+
+.svg-dark {
+  filter: var(--filter-svg-dark);
+}
+
+.gradient-text {
+  background-image: linear-gradient(45deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

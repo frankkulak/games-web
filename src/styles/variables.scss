@@ -1,0 +1,19 @@
+:root {
+  // common variables
+  --filter-svg-dark: invert(13%) sepia(3%) saturate(427%) hue-rotate(314deg)
+    brightness(105%) contrast(84%);
+  --filter-svg-light: invert(99%) sepia(74%) saturate(352%) hue-rotate(196deg)
+    brightness(121%) contrast(100%);
+
+  // light theme variables
+  --filter-svg: var(--filter-svg-dark);
+  --color-gradient-start: #6021be;
+  --color-gradient-end: #296db6;
+
+  // dark theme variables
+  &.dark {
+    --filter-svg: var(--filter-svg-light);
+    --color-gradient-start: #14aae6;
+    --color-gradient-end: #36c22c;
+  }
+}
