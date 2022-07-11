@@ -2,7 +2,17 @@
   // intentionally blank
 </script>
 
-<p>Home</p>
+<svelte:head>
+  <title>Page Not Found</title>
+</svelte:head>
+<section>
+  <a href="#/minesweeper">
+    <div>
+      <h3>Minesweeper</h3>
+      <p>Description.</p>
+    </div>
+  </a>
+</section>
 
 <style lang="scss">
   // intentionally blank
