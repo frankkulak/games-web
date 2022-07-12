@@ -45,7 +45,7 @@
 
   function startLongClick(e: MouseEvent | TouchEvent) {
     if (longClickTimeout) clearTimeout(longClickTimeout);
-    longClickTimeout = setTimeout(() => toggleFlag(e), 800);
+    longClickTimeout = setTimeout(() => toggleFlag(e), 500);
   }
 
   function endLongClick() {
