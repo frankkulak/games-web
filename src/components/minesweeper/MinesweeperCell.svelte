@@ -107,6 +107,7 @@
   }
 
   .minesweeper-cell,
+  img,
   p {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
