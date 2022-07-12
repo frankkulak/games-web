@@ -3,15 +3,10 @@
 </script>
 
 <svelte:head>
-  <title>Page Not Found</title>
+  <title>Tiny Games</title>
 </svelte:head>
 <section>
-  <a href="#/minesweeper">
-    <div>
-      <h3>Minesweeper</h3>
-      <p>Description.</p>
-    </div>
-  </a>
+  <a href="#/minesweeper" class="text-black dark:text-white">Minesweeper</a>
 </section>
 
 <style lang="scss">

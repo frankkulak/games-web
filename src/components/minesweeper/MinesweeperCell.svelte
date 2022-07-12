@@ -12,13 +12,7 @@
   function dig(e: MouseEvent) {
     e.preventDefault();
     if (cell.flag) return;
-
-    if (model.hasDug) {
-      model.dig(cell);
-    } else {
-      model.initialDig(cell);
-    }
-
+    model.dig(cell);
     model = model;
   }
 
@@ -27,6 +21,14 @@
     if (cell.mine) cell.flag = true;
     cell.dug = false;
     model = model;
+  }
+
+  function initialDig(e: MouseEvent) {
+    e.preventDefault();
+    if (!model.hasDug) {
+      model.initialDig(cell);
+      model = model;
+    }
   }
 
   function toggleFlag(e: MouseEvent) {
@@ -55,6 +57,7 @@
   <div
     class="w-8 h-8 flex justify-center items-center undug-cell minesweeper-cell"
     class:is-odd={isOdd}
+    on:click={initialDig}
     on:dblclick={dig}
     on:mousedown={startLongClick}
     on:mouseup={endLongClick}
