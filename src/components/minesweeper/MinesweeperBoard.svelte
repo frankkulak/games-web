@@ -27,6 +27,14 @@
     --minesweeper-tile-2: #32c77a;
     --minesweeper-dug-tile-1: #dce3e1;
     --minesweeper-dug-tile-2: #ebeeed;
+    --minesweeper-count-1: #089fc5;
+    --minesweeper-count-2: #3db24b;
+    --minesweeper-count-3: #c4c42e;
+    --minesweeper-count-4: #c78932;
+    --minesweeper-count-5: #c75c32;
+    --minesweeper-count-6: #c73c32;
+    --minesweeper-count-7: #c732ae;
+    --minesweeper-count-8: #7f32c7;
 
     &.dark {
       --minesweeper-tile-1: rgb(15, 83, 49);

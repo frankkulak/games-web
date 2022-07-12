@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { MinesweeperCell, MinesweeperModel } from "$lib/minesweeper";
+  import { onMount } from "svelte";
 
   export let isOdd: boolean;
   export let model: MinesweeperModel;
   export let cell: MinesweeperCell;
 
   let longClickTimeout: any;
+  let hint: HTMLParagraphElement;
 
   $: hintText = cell.closeMines === 0 ? "" : cell.closeMines;
 
@@ -77,7 +79,12 @@
     {#if cell.mine}
       <div class="w-4 h-4 rounded-full bg-red-600 dark:bg-red-700" />
     {:else}
-      <p class="my-0 text-gray-600 dark:text-gray-300">{hintText}</p>
+      <p
+        class="my-0 text-gray-600 dark:text-gray-300 font-bold"
+        style="color: var(--minesweeper-count-{cell.closeMines});"
+      >
+        {hintText}
+      </p>
     {/if}
   </div>
 {/if}
