@@ -6,18 +6,23 @@
 </script>
 
 {#if model}
-  <div class="bg-gray-300 dark:bg-gray-900 rounded p-1">
-    {#each model.columns as column, colKey (colKey)}
-      <div class="flex">
-        {#each column as cell, rowKey (rowKey)}
-          <MinesweeperCell
-            isOdd={(colKey + rowKey) % 2 === 1}
-            {cell}
-            bind:model
-          />
-        {/each}
-      </div>
-    {/each}
+  <div class="flex flex-col justify-center">
+    <p class="mt-0 mb-3 text-center text-black dark:text-white">
+      {model.numFlags} of {model.numMines} mines found
+    </p>
+    <div class="bg-gray-300 dark:bg-gray-900 rounded p-1">
+      {#each model.columns as column, colKey (colKey)}
+        <div class="flex">
+          {#each column as cell, rowKey (rowKey)}
+            <MinesweeperCell
+              isOdd={(colKey + rowKey) % 2 === 1}
+              {cell}
+              bind:model
+            />
+          {/each}
+        </div>
+      {/each}
+    </div>
   </div>
 {/if}
 

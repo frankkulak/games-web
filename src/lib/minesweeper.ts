@@ -12,6 +12,22 @@ export class MinesweeperModel {
   readonly numMines: number;
   hasDug: boolean;
 
+  get numFlags(): number {
+    return this.allCells.filter(cell => cell.flag).length;
+  }
+
+  private _allCells: MinesweeperCell[];
+  get allCells(): MinesweeperCell[] {
+    if (this._allCells) return this._allCells;
+    this._allCells = [];
+    this.columns.forEach(column => {
+      column.forEach(cell => {
+        this._allCells.push(cell);
+      });
+    });
+    return this._allCells;
+  }
+
   constructor(
     readonly numColumns: number,
     readonly numRows: number,
