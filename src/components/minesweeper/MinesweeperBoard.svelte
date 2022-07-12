@@ -30,10 +30,14 @@
   :root {
     --minesweeper-tile-1: #0abd73;
     --minesweeper-tile-2: #32c77a;
+    --minesweeper-dug-tile-1: #dce3e1;
+    --minesweeper-dug-tile-2: #ebeeed;
 
     &.dark {
-      --minesweeper-tile-1: #154f37;
+      --minesweeper-tile-1: rgb(15, 83, 49);
       --minesweeper-tile-2: #1a5c3a;
+      --minesweeper-dug-tile-1: #2f3440;
+      --minesweeper-dug-tile-2: #282d38;
     }
   }
 </style>

@@ -53,7 +53,8 @@
   </div>
 {:else}
   <div
-    class="w-8 h-8 flex justify-center items-center bg-gray-300 dark:bg-gray-900 minesweeper-cell"
+    class="w-8 h-8 flex justify-center items-center bg-gray-300 dark:bg-gray-900 dug-cell minesweeper-cell"
+    class:is-odd={isOdd}
     on:contextmenu={undig}
     on:dblclick={clearAdjacent}
   >
@@ -71,6 +72,14 @@
 
     &.is-odd {
       background-color: var(--minesweeper-tile-2);
+    }
+  }
+
+  .dug-cell {
+    background-color: var(--minesweeper-dug-tile-1);
+
+    &.is-odd {
+      background-color: var(--minesweeper-dug-tile-2);
     }
   }
 
