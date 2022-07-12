@@ -1,0 +1,41 @@
+:root {
+  --filter-svg-dark: invert(13%) sepia(3%) saturate(427%) hue-rotate(314deg)
+    brightness(105%) contrast(84%);
+  --filter-svg-light: invert(99%) sepia(74%) saturate(352%) hue-rotate(196deg)
+    brightness(121%) contrast(100%);
+  --filter-svg: var(--filter-svg-dark);
+  --color-gradient-start: #6021be;
+  --color-gradient-end: #296db6;
+}
+:root.dark {
+  --filter-svg: var(--filter-svg-light);
+  --color-gradient-start: #14aae6;
+  --color-gradient-end: #36c22c;
+}
+
+html.theme-transition, html.theme-transition *, html.theme-transition *:before, html.theme-transition *:after {
+  transition: all 500ms;
+  transition-delay: 0ms;
+}
+
+.svg {
+  filter: var(--filter-svg);
+}
+
+.svg-light {
+  filter: var(--filter-svg-light);
+}
+
+.svg-dark {
+  filter: var(--filter-svg-dark);
+}
+
+.gradient-text {
+  background-image: linear-gradient(45deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*# sourceMappingURL=global.css.map */
