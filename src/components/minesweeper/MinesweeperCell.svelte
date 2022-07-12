@@ -5,6 +5,8 @@
   export let model: MinesweeperModel;
   export let cell: MinesweeperCell;
 
+  let longClickTimeout: any;
+
   $: hintText = cell.closeMines === 0 ? "" : cell.closeMines;
 
   function dig(e: MouseEvent) {
@@ -38,13 +40,24 @@
     model.clearAdjacent(cell);
     model = model;
   }
+
+  function startLongClick(e: MouseEvent) {
+    if (longClickTimeout) clearTimeout(longClickTimeout);
+    longClickTimeout = setTimeout(() => toggleFlag(e), 800);
+  }
+
+  function endLongClick() {
+    clearTimeout(longClickTimeout);
+  }
 </script>
 
 {#if !cell.dug}
   <div
     class="w-8 h-8 flex justify-center items-center undug-cell minesweeper-cell"
     class:is-odd={isOdd}
-    on:click={dig}
+    on:dblclick={dig}
+    on:mousedown={startLongClick}
+    on:mouseup={endLongClick}
     on:contextmenu={toggleFlag}
   >
     {#if cell.flag}
