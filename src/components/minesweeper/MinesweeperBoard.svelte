@@ -41,11 +41,11 @@
       --minesweeper-tile-2: #1a5c3a;
       --minesweeper-dug-tile-1: #2f3440;
       --minesweeper-dug-tile-2: #282d38;
-      --minesweeper-count-1: #089fc5;
-      --minesweeper-count-2: #3db24b;
-      --minesweeper-count-3: #c4c42e;
-      --minesweeper-count-4: #c78932;
-      --minesweeper-count-5: #c75c32;
+      --minesweeper-count-1: #0e78b5;
+      --minesweeper-count-2: #239e31;
+      --minesweeper-count-3: #b8ac3c;
+      --minesweeper-count-4: #c67007;
+      --minesweeper-count-5: #c04c1f;
       --minesweeper-count-6: #c73c32;
       --minesweeper-count-7: #c732ae;
       --minesweeper-count-8: #7f32c7;
