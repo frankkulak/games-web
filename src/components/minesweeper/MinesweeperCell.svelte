@@ -1,13 +1,11 @@
 <script lang="ts">
   import type { MinesweeperCell, MinesweeperModel } from "$lib/minesweeper";
-  import { onMount } from "svelte";
 
   export let isOdd: boolean;
   export let model: MinesweeperModel;
   export let cell: MinesweeperCell;
 
   let longClickTimeout: any;
-  let hint: HTMLParagraphElement;
 
   $: hintText = cell.closeMines === 0 ? "" : cell.closeMines;
 
@@ -33,7 +31,7 @@
     }
   }
 
-  function toggleFlag(e: MouseEvent) {
+  function toggleFlag(e: MouseEvent | TouchEvent) {
     e.preventDefault();
     cell.flag = !cell.flag;
     model = model;
@@ -45,7 +43,7 @@
     model = model;
   }
 
-  function startLongClick(e: MouseEvent) {
+  function startLongClick(e: MouseEvent | TouchEvent) {
     if (longClickTimeout) clearTimeout(longClickTimeout);
     longClickTimeout = setTimeout(() => toggleFlag(e), 800);
   }
@@ -61,7 +59,9 @@
     class:is-odd={isOdd}
     on:click={initialDig}
     on:dblclick={dig}
+    on:touchstart={startLongClick}
     on:mousedown={startLongClick}
+    on:touchend={endLongClick}
     on:mouseup={endLongClick}
     on:contextmenu={toggleFlag}
   >
@@ -106,7 +106,8 @@
     }
   }
 
-  .minesweeper-cell {
+  .minesweeper-cell,
+  p {
     user-select: none;
   }
 </style>
