@@ -10,7 +10,11 @@
     {#each model.columns as column, colKey (colKey)}
       <div class="flex">
         {#each column as cell, rowKey (rowKey)}
-          <MinesweeperCell isOdd={(colKey + rowKey) % 2 === 1} {cell} />
+          <MinesweeperCell
+            isOdd={(colKey + rowKey) % 2 === 1}
+            {cell}
+            bind:model
+          />
         {/each}
       </div>
     {/each}

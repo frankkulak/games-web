@@ -1,6 +1,7 @@
 export interface MinesweeperCell {
   mine: boolean;
   dug: boolean;
+  flag: boolean;
   column: number;
   row: number;
   closeMines?: number;
@@ -28,8 +29,9 @@ export class MinesweeperModel {
         column.push({
           mine,
           dug: false,
+          flag: false,
           column: c,
-          row: r
+          row: r,
         });
       }
     }
@@ -44,18 +46,49 @@ export class MinesweeperModel {
           cell.closeMines = 0;
         }
 
-        const leftColumn = this.columns[c - 1];
-        if (leftColumn?.[r - 1]?.mine) cell.closeMines++;
-        if (leftColumn?.[r]?.mine) cell.closeMines++;
-        if (leftColumn?.[r + 1]?.mine) cell.closeMines++;
-        const thisColumn = this.columns[c];
-        if (thisColumn?.[r - 1]?.mine) cell.closeMines++;
-        if (thisColumn?.[r + 1]?.mine) cell.closeMines++;
-        const rightColumn = this.columns[c + 1];
-        if (rightColumn?.[r - 1]?.mine) cell.closeMines++;
-        if (rightColumn?.[r]?.mine) cell.closeMines++;
-        if (rightColumn?.[r + 1]?.mine) cell.closeMines++;
+        cell.closeMines += this.getAdjacentCells(cell)
+          .map(cell => cell.mine)
+          .filter(v => v)
+          .length;
       }
+    }
+  }
+
+  getCell(column: number, row: number): MinesweeperCell {
+    return this.columns[column]?.[row];
+  }
+
+  getAdjacentCells(cell: MinesweeperCell): MinesweeperCell[] {
+    const c = cell.column;
+    const r = cell.row;
+
+    const adjacentCells: MinesweeperCell[] = [];
+    let currentCell: MinesweeperCell;
+
+    const leftColumn = this.columns[c - 1];
+    if (currentCell = leftColumn?.[r - 1]) adjacentCells.push(currentCell);
+    if (currentCell = leftColumn?.[r]) adjacentCells.push(currentCell);
+    if (currentCell = leftColumn?.[r + 1]) adjacentCells.push(currentCell);
+
+    const thisColumn = this.columns[c];
+    if (currentCell = thisColumn?.[r - 1]) adjacentCells.push(currentCell);
+    if (currentCell = thisColumn?.[r + 1]) adjacentCells.push(currentCell);
+
+    const rightColumn = this.columns[c + 1];
+    if (currentCell = rightColumn?.[r - 1]) adjacentCells.push(currentCell);
+    if (currentCell = rightColumn?.[r]) adjacentCells.push(currentCell);
+    if (currentCell = rightColumn?.[r + 1]) adjacentCells.push(currentCell);
+
+    return adjacentCells;
+  }
+
+  dig(cell: MinesweeperCell) {
+    cell.dug = true;
+    if (!cell.mine && cell.closeMines === 0) {
+      const adjacentCells = this.getAdjacentCells(cell);
+      adjacentCells.forEach(otherCell => {
+        if (!otherCell.dug) this.dig(otherCell);
+      });
     }
   }
 }
