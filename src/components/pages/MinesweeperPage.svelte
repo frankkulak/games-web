@@ -8,7 +8,11 @@
   onMount(refreshModel);
 
   function refreshModel() {
-    model = new MinesweeperModel(20, 20, 0.22);
+    if (window.innerWidth > window.innerHeight) {
+      model = new MinesweeperModel(18, 22, 0.22);
+    } else {
+      model = new MinesweeperModel(22, 18, 0.22);
+    }
   }
 
   function solveModel() {

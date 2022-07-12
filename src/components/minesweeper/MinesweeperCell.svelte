@@ -55,7 +55,7 @@
 
 {#if !cell.dug}
   <div
-    class="w-8 h-8 flex justify-center items-center undug-cell minesweeper-cell"
+    class="w-9 h-9 flex justify-center items-center undug-cell minesweeper-cell"
     class:is-odd={isOdd}
     on:click={initialDig}
     on:dblclick={dig}
@@ -71,7 +71,7 @@
   </div>
 {:else}
   <div
-    class="w-8 h-8 flex justify-center items-center bg-gray-300 dark:bg-gray-900 dug-cell minesweeper-cell"
+    class="w-9 h-9 flex justify-center items-center bg-gray-300 dark:bg-gray-900 dug-cell minesweeper-cell"
     class:is-odd={isOdd}
     on:contextmenu={undig}
     on:dblclick={clearAdjacent}
