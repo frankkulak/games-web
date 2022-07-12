@@ -16,13 +16,18 @@
   <title>Minesweeper</title>
 </svelte:head>
 <section class="flex justify-center">
-  <div class="flex flex-col gap-4">
-    <MinesweeperBoard bind:model />
-    <div class="flex justify-center">
-      <button
-        class="p-2 rounded bg-sky-500 text-white dark:text-gray-800"
-        on:click={refreshModel}>Refresh</button
-      >
-    </div>
+  <div class="flex flex-col flex-wrap gap-4">
+    {#if model}
+      <div class="flex justify-center items-center gap-4 text-center">
+        <p class="my-0 text-black dark:text-white">
+          {model.numFlags} of {model.numMines} mines found
+        </p>
+        <button
+          class="p-2 rounded bg-sky-500 text-white dark:text-gray-800"
+          on:click={refreshModel}>Refresh</button
+        >
+      </div>
+      <MinesweeperBoard bind:model />
+    {/if}
   </div>
 </section>
