@@ -14,7 +14,8 @@
     "watch:tw": "npm run build:tw -- --watch",
     "dev": "npm run clean ; concurrently \"npm run watch:tw\" \"npm run watch:sass\" \"npm run watch:svelte\"",
     "start": "sirv public --no-clear --port 5000",
-    "serve": "sirv public --no-clear --host"
+    "serve": "sirv public --no-clear --host",
+    "deploy": "sh ./scripts/deploy.sh"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.9",
