@@ -8,7 +8,7 @@
     "build:sass": "sass ./src/styles/_index.scss ./public/build/global.css",
     "build:svelte": "rollup -c",
     "build:tw": "npx tailwindcss -i ./tailwind.css -o ./public/build/tailwind.css",
-    "build": "npm run clean ; npm run watch:tw ; npm run watch:sass ; npm run watch:svelte",
+    "build": "npm run clean ; npm run build:tw ; npm run build:sass ; npm run build:svelte",
     "watch:sass": "npm run build:sass -- --watch",
     "watch:svelte": "rollup -c -w",
     "watch:tw": "npm run build:tw -- --watch",
