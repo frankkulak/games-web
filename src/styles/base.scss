@@ -10,19 +10,19 @@ html {
     transition-delay: 0ms;
   }
 
-  *,
-  *:after,
-  *:before {
-    // needed for smooth transitions
-    color: black;
-  }
+  // *,
+  // *:after,
+  // *:before {
+  //   // needed for smooth transitions
+  //   color: black;
+  // }
 
-  &.dark {
-    *,
-    *:after,
-    *:before {
-      // needed for smooth transitions
-      color: white;
-    }
-  }
+  // &.dark {
+  //   *,
+  //   *:after,
+  //   *:before {
+  //     // needed for smooth transitions
+  //     color: white;
+  //   }
+  // }
 }

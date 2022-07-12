@@ -4,7 +4,6 @@
   export let isOdd: boolean;
   export let model: MinesweeperModel;
   export let cell: MinesweeperCell;
-  export let hasDug: boolean;
 
   $: hintText = cell.closeMines === 0 ? "" : cell.closeMines;
 
@@ -12,11 +11,10 @@
     e.preventDefault();
     if (cell.flag) return;
 
-    if (hasDug) {
+    if (model.hasDug) {
       model.dig(cell);
     } else {
       model.initialDig(cell);
-      hasDug = true;
     }
 
     model = model;
@@ -24,6 +22,7 @@
 
   function undig(e: MouseEvent) {
     e.preventDefault();
+    if (cell.mine) cell.flag = true;
     cell.dug = false;
     model = model;
   }

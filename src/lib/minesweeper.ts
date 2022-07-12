@@ -10,6 +10,7 @@ export interface MinesweeperCell {
 export class MinesweeperModel {
   readonly columns: MinesweeperCell[][];
   readonly numMines: number;
+  hasDug: boolean;
 
   constructor(
     readonly numColumns: number,
@@ -18,6 +19,7 @@ export class MinesweeperModel {
   ) {
     this.columns = [];
     this.numMines = 0;
+    this.hasDug = false;
 
     // initialize cells
     for (let c = 0; c < numColumns; c++) {
@@ -122,5 +124,7 @@ export class MinesweeperModel {
         this.dig(aCell);
       }
     });
+
+    this.hasDug = true;
   }
 }
