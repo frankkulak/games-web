@@ -10,6 +10,11 @@
   function refreshModel() {
     model = new MinesweeperModel(20, 20, 0.22);
   }
+
+  function solveModel() {
+    model.solve();
+    model = model;
+  }
 </script>
 
 <svelte:head>
@@ -25,6 +30,10 @@
         <button
           class="p-2 rounded bg-sky-500 text-white dark:text-gray-800"
           on:click={refreshModel}>Refresh</button
+        >
+        <button
+          class="p-2 rounded bg-sky-500 text-white dark:text-gray-800"
+          on:click={solveModel}>Solve</button
         >
       </div>
       <MinesweeperBoard bind:model />

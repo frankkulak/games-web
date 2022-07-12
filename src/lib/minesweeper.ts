@@ -143,4 +143,15 @@ export class MinesweeperModel {
 
     this.hasDug = true;
   }
+
+  solve() {
+    this.allCells.forEach(cell => {
+      if (cell.mine) {
+        cell.dug = false;
+        cell.flag = true;
+      } else {
+        cell.dug = true;
+      }
+    });
+  }
 }
