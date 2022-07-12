@@ -34,7 +34,7 @@
     --minesweeper-count-5: #c75c32;
     --minesweeper-count-6: #c73c32;
     --minesweeper-count-7: #c732ae;
-    --minesweeper-count-8: #7f32c7;
+    --minesweeper-count-8: #9a6ddc;
 
     &.dark {
       --minesweeper-tile-1: rgb(15, 83, 49);
