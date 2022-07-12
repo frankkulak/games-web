@@ -3,6 +3,7 @@
   import MinesweeperCell from "./MinesweeperCell.svelte";
 
   export let model: MinesweeperModel;
+  let hasDug = false;
 </script>
 
 {#if model}
@@ -14,6 +15,7 @@
             isOdd={(colKey + rowKey) % 2 === 1}
             {cell}
             bind:model
+            bind:hasDug
           />
         {/each}
       </div>

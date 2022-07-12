@@ -91,4 +91,36 @@ export class MinesweeperModel {
       });
     }
   }
+
+  clearAdjacent(cell: MinesweeperCell) {
+    const adjacentCells = this.getAdjacentCells(cell);
+    const adjacentFlags = adjacentCells
+      .filter(cell => cell.flag)
+      .filter(v => v)
+      .length;
+
+    if (adjacentFlags === cell.closeMines) {
+      adjacentCells.forEach(cell => {
+        if (!cell.flag) this.dig(cell)
+      });
+    }
+  }
+
+  initialDig(cell: MinesweeperCell) {
+    const adjacentCells = this.getAdjacentCells(cell);
+
+    if (cell.mine) {
+      cell.flag = true;
+    } else {
+      this.dig(cell);
+    }
+
+    adjacentCells.forEach(aCell => {
+      if (aCell.mine) {
+        aCell.flag = true;
+      } else {
+        this.dig(aCell);
+      }
+    });
+  }
 }
