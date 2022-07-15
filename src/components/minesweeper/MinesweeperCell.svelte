@@ -6,6 +6,7 @@
   export let cell: MinesweeperCell;
 
   let longClickTimeout: any;
+  let showFloatingFlag = false;
 
   $: hintText = cell.closeMines === 0 ? "" : cell.closeMines;
 
@@ -44,18 +45,20 @@
   }
 
   function startLongClick(e: MouseEvent | TouchEvent) {
+    showFloatingFlag = true;
     if (longClickTimeout) clearTimeout(longClickTimeout);
     longClickTimeout = setTimeout(() => toggleFlag(e), 500);
   }
 
   function endLongClick() {
+    showFloatingFlag = false;
     clearTimeout(longClickTimeout);
   }
 </script>
 
 {#if !cell.dug}
   <div
-    class="w-9 h-9 flex justify-center items-center undug-cell minesweeper-cell"
+    class="w-9 h-9 flex justify-center items-center undug-cell minesweeper-cell relative"
     class:is-odd={isOdd}
     on:click={initialDig}
     on:dblclick={dig}
@@ -67,6 +70,15 @@
   >
     {#if cell.flag}
       <img src="./assets/flag.svg" alt="Flag" class="svg-light w-4 h-4" />
+    {/if}
+    {#if showFloatingFlag}
+      <div
+        class="absolute bottom-6 p-2 bg-sky-500 rounded-full shadow-sm"
+        on:mouseup={toggleFlag}
+        on:touchend={toggleFlag}
+      >
+        <img src="./assets/flag.svg" alt="Flag" class="svg-light w-4 h-4" />
+      </div>
     {/if}
   </div>
 {:else}

@@ -24,12 +24,12 @@
 <style lang="scss" global>
   :root {
     --minesweeper-tile-1: #0abd73;
-    --minesweeper-tile-2: #32c77a;
+    --minesweeper-tile-2: #16c67d;
     --minesweeper-dug-tile-1: #dce3e1;
-    --minesweeper-dug-tile-2: #ebeeed;
+    --minesweeper-dug-tile-2: #e6eae8;
     --minesweeper-count-1: #089fc5;
     --minesweeper-count-2: #3db24b;
-    --minesweeper-count-3: #c4c42e;
+    --minesweeper-count-3: #cfb21f;
     --minesweeper-count-4: #c78932;
     --minesweeper-count-5: #c75c32;
     --minesweeper-count-6: #c73c32;
@@ -37,10 +37,10 @@
     --minesweeper-count-8: #9a6ddc;
 
     &.dark {
-      --minesweeper-tile-1: rgb(15, 83, 49);
-      --minesweeper-tile-2: #1a5c3a;
+      --minesweeper-tile-1: #104a2c;
+      --minesweeper-tile-2: #0f5832;
       --minesweeper-dug-tile-1: #2f3440;
-      --minesweeper-dug-tile-2: #282d38;
+      --minesweeper-dug-tile-2: #313745;
       --minesweeper-count-1: #0e78b5;
       --minesweeper-count-2: #239e31;
       --minesweeper-count-3: #b8ac3c;
