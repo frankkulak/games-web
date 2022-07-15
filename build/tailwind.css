@@ -558,6 +558,18 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
 .my-0 {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -645,6 +657,11 @@ video {
   background-color: rgb(210 213 219 / var(--tw-bg-opacity));
 }
 
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
@@ -653,11 +670,6 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(244 244 246 / var(--tw-bg-opacity));
-}
-
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
@@ -669,12 +681,12 @@ video {
   padding: 0.25rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .py-2 {
@@ -703,6 +715,12 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-md {
